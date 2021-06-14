@@ -1,0 +1,16 @@
+{
+    "name": "minimalRC",
+    "version": "1.0.0",
+    "description": "Proyecto para compilar el tema minimalRC con Bulma y las personalizaciones para ramoscarlos.com",
+    "main": "index.php",
+    "scripts": {
+        "build": "node-sass --output-style expanded --include-path=node_modules/bulma minimalRC.scss style.css",
+        "start": "npm run build -- --watch"
+    },
+    "author": "Carlos Ramos",
+    "license": "CC-BY-4.0",
+    "devDependencies": {
+        "bulma": "^0.9.1",
+        "node-sass": "^5.0.0"
+    }
+}

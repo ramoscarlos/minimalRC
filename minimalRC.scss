@@ -1,0 +1,240 @@
+@charset "utf-8";
+
+// Paleta de colores de My Little Pony.
+$pinkie-pie-cola-relleno: #DD6FA4;
+$pinkie-pie-cola-contorno: #BB1C76;
+$pinkie-pie-cuerpo-relleno: #F5B7D0;
+$pinkie-pie-cuerpo-contorno: #E880B0;
+$inverted-pinkie: #FFFFFF;
+// Color para enlaces.
+$blue: $pinkie-pie-cola-relleno;
+$link-hover: $pinkie-pie-cola-contorno;
+// Color para primary.
+$turquoise: $pinkie-pie-cola-relleno;
+$turquoise-invert: $pinkie-pie-cola-contorno;
+$primary-light: $pinkie-pie-cuerpo-relleno;
+$primary-dark: $pinkie-pie-cola-contorno;
+$white-ter: lighten($pinkie-pie-cola-contorno, 54%);
+
+// Navbar.
+$navbar-height: 1rem;
+
+// Tamaño de la fuente base.
+$body-size-touch: 16px;  // Touch size.
+$body-size: 28px;        // Desktop size
+$body-size-fullhd: 32px; // Full HD size.
+$body-line-height: 2;
+// Tamaños relativos (conservamos 4).
+$size-1: 2.00rem; // Títulos.
+$size-2: 1.50rem; // Subtítulos.
+$size-3: 1rem;    // Cuerpo.
+$size-4: 0.75rem; // Notas al pie, leyendas.
+// Los siguientes tres tamaños se quedan sin uso.
+$size-5: $size-4;
+$size-6: $size-4;
+$size-7: $size-4;
+// Establecer tamaños de título y subtítulo (y su espaciado).
+$title-size: $size-1;
+$subtitle-size: $size-2;
+$title-line-height: $size-1;
+$subtitle-line-height: 1.5*$size-2;
+// Espaciado en base a los nuevos tamaños.
+$section-padding: $size-3 $size-3;
+
+// Variables de fuentes
+$family-sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+$family-monospace: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+$family-serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+// Asignación a elementos de la interfaz.
+// $family-primary: $family-monospace;
+$title-family: $family-serif;
+$subtitle-family: $title-family;
+
+@import "node_modules/bulma/bulma";
+
+.hero .title {
+	font-size: $size-2;
+}
+.hero .subtitle {
+	font-size: $size-3;
+	font-family: $family-sans-serif;
+}
+
+/* CSS Reset */
+.content li {
+    margin-left: 0.75rem;
+}
+a {
+	text-decoration: underline double $pinkie-pie-cuerpo-relleno;
+	cursor: pointer;
+}
+.main-page a,
+.navbar a,
+.header nav.level a,
+a.button {
+	text-decoration: none;
+}
+
+/*******************************************************************/
+/*** Estilo de minimalRC *******************************************/
+/*******************************************************************/
+html {
+	@include touch {
+		font-size: $body-size-touch;
+	}
+	@include fullhd {
+		font-size: $body-size-fullhd;
+	}
+}
+.navbar {
+	font-size: $size-4;
+	line-height: $navbar-height;
+	border-top: 1px solid $pinkie-pie-cuerpo-relleno;
+}
+.navbar-minimal-padding {
+	min-height: $navbar-height;
+}
+.button {
+	font-size: $size-4;
+}
+.button.is-primary:not(.is-outlined):not(.is-inverted) {
+	background-image:linear-gradient(180deg,$pinkie-pie-cuerpo-relleno 0%,$pinkie-pie-cola-relleno 90%,$pinkie-pie-cola-contorno 100%);
+	-webkit-filter:none;
+	filter:none;
+	border:1px solid $pinkie-pie-cola-relleno;
+}
+.button.is-primary:not(.is-outlined):not(.is-inverted).is-hovered,.button.is-primary:not(.is-outlined):not(.is-inverted):hover {
+	background-image:linear-gradient(180deg,$pinkie-pie-cuerpo-contorno 0%,$pinkie-pie-cola-relleno 90%,$pinkie-pie-cola-contorno 100%);
+	border:1px solid $pinkie-pie-cola-contorno;
+}
+.header .level .heading {
+    padding: 1rem 0;
+}
+
+/*******************************************************************/
+/*** Estilo para entradas ******************************************/
+/*******************************************************************/
+.entrada div.titulo,
+div.pie-de-pagina {
+	background-color: $white-ter;
+}
+.entrada div.titulo {
+	margin-bottom: 2.5em;
+}
+.entrada h2.title {
+	padding: 2em 0em 1.5em;
+	font-size: $size-1;
+	margin-bottom: 0em;
+}
+.entrada .fecha {
+	display: block;
+	font-size: $size-4;
+	text-align: right;
+}
+.entrada .column,
+.entrada .section {
+	padding-top: 0em;
+	padding-bottom: 0em;
+}
+.entrada .fecha .publicado {
+	color: $white-ter;
+}
+.entrada .navigation {
+	padding: $size-1*2.25 0 $size-1*2.75;
+	font-size: $size-4;
+}
+.entrada .hr {
+	height: 1px;
+	width: 30%;
+	margin: $size-1*2.25 35% 0em;
+	background-color: $primary;
+}
+
+/*******************************************************************/
+/*** Estilo para plugins *******************************************/
+/*******************************************************************/
+.syntaxhighlighter.nogutter {
+    border-top: 1px solid hsl(0, 0%, 91%);
+    border-bottom: 1px solid hsl(0, 0%, 91%);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/*******************************************************************/
+/*** Estilo para plantillas ****************************************/
+/*******************************************************************/
+#main-content {
+	p {
+	    margin-top: 0;
+	    margin-bottom: 1.5rem;
+	    text-indent: 1.5rem;
+	    text-align: justify;
+	}
+}
+#archive {
+	.table td,
+	.table th,
+	.table tr {
+		border: none;
+	}
+	tr.year,
+	tr.manualesonth {
+		font-family: $title-family;
+	}
+}
+.page-nonav {
+	.navbar-minimal {
+		display: none;
+	}
+}
+#comments {
+	h2 {
+		padding: $size-1 0em $size-4;
+		text-align: center;
+	}
+
+	ul.children {
+		margin-left: 1.00rem;
+	}
+	li.comment {
+		margin-bottom: 1.00rem;
+	}
+	.comment-body {
+		border-left: 2px solid $pinkie-pie-cola-relleno;
+		padding-left: 0.50rem;
+	}
+	.comment-meta,
+	.reply {
+		font-size: $size-4;
+	}
+}
+
+/*******************************************************************/
+/*** Estilo para páginas ("plantillas manuales") *******************/
+/*******************************************************************/
+.curso {
+	.title {
+		margin-bottom: 0;
+	}
+	.subtitle {
+		text-align: justify;
+	}
+	.curso-imagen {
+	    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+	    filter: grayscale(100%);
+	}
+}
+
+/*******************************************************************/
+/*** Estilo de WordPress *******************************************/
+/*******************************************************************/
+.wp-block-image {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.wp-block-image figcaption,
+.wp-caption-text {
+    text-align: center;
+    color: hsl(0, 0%, 71%);
+    font-size: smaller;
+}
